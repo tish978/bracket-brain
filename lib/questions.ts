@@ -224,12 +224,6 @@ export const ALL_QUESTIONS: Question[] = [
 
   // --- PLAYERS ---
   {
-    question: "Which player was known as 'Steph Curry before Steph Curry' for his March Madness runs?",
-    options: ["Adam Morrison", "Stephen Curry", "J.J. Redick", "Jimmer Fredette"],
-    correctAnswer: "Stephen Curry",
-    fact: "Steph Curry led Davidson to the Elite Eight in 2008 as a freshman, averaging 25 PPG in the tournament.",
-  },
-  {
     question: "Who scored 61 points in a 1970 NCAA Tournament game for Pete Maravich's LSU team?",
     options: ["Pete Maravich", "Bob Lanier", "Elvin Hayes", "Willis Reed"],
     correctAnswer: "Pete Maravich",
