@@ -20,11 +20,6 @@ export function Header() {
           </span>
         </div>
 
-        {/* Live badge */}
-        <div className="badge-volt flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-black inline-block" />
-          LIVE
-        </div>
       </div>
     </header>
   );

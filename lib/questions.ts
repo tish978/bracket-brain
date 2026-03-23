@@ -678,7 +678,7 @@ export const ALL_QUESTIONS: Question[] = [
     fact: "The Big 12 placed 9 teams in the 2023 NCAA Tournament field, the most of any conference that year.",
   },
   {
-    question: "The Mountain West Conference has produced multiple Cinderella teams. Which school had a memorable 2022 Final Four run?",
+    question: "The Mountain West Conference has produced multiple Cinderella teams. Which school had a memorable 2023 Final Four run?",
     options: ["Utah State", "San Diego State", "UNLV", "Colorado State"],
     correctAnswer: "San Diego State",
     fact: "San Diego State reached the 2023 national championship game as a 5-seed, losing to UConn in an exciting 76-59 final.",
