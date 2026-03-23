@@ -1,26 +1,188 @@
 @import "tailwindcss";
 
+/* ─── Design tokens ───────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:      #000000;
+  --s1:      #18181b;  /* zinc-900  */
+  --s2:      #27272a;  /* zinc-800  */
+  --volt:    #a3e635;  /* lime-400  */
+  --success: #22c55e;  /* green-500 */
+  --error:   #dc2626;  /* red-600   */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ─── Base ────────────────────────────────────────────────────── */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #fff;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* ─── Brutalist button ────────────────────────────────────────── */
+/* Primary (volt) */
+.btn-volt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 24px;
+  background: var(--volt);
+  color: #000;
+  font-weight: 900;
+  font-size: 1.125rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 0;
+  box-shadow: 8px 8px 0px 0px rgba(255,255,255,1);
+  transition: transform 60ms, box-shadow 60ms;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+}
+.btn-volt:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Secondary (white outline) */
+.btn-outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 20px 24px;
+  background: transparent;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: 2px solid #fff;
+  box-shadow: 8px 8px 0px 0px rgba(255,255,255,0.25);
+  transition: transform 60ms, box-shadow 60ms;
+  user-select: none;
+  cursor: pointer;
+}
+.btn-outline:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Ghost (dark fill) */
+.btn-ghost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 20px 24px;
+  background: var(--s2);
+  color: #fff;
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: 2px solid #3f3f46;
+  box-shadow: 8px 8px 0px 0px rgba(255,255,255,0.1);
+  transition: transform 60ms, box-shadow 60ms;
+  user-select: none;
+  cursor: pointer;
+}
+.btn-ghost:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Answer buttons */
+.answer-btn {
+  display: block;
+  width: 100%;
+  padding: 18px 20px;
+  background: var(--s2);
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+  border-radius: 0;
+  border: 2px solid #3f3f46;
+  box-shadow: 4px 4px 0px 0px rgba(255,255,255,0.12);
+  transition: transform 60ms, box-shadow 60ms, border-color 60ms, background 60ms;
+  cursor: pointer;
+}
+.answer-btn:not(:disabled):hover {
+  border-color: var(--volt);
+  color: var(--volt);
+}
+.answer-btn:not(:disabled):active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+.answer-btn:disabled {
+  cursor: default;
+}
+.answer-btn.correct {
+  background: var(--success);
+  border-color: var(--success);
+  box-shadow: none;
+  color: #fff;
+}
+.answer-btn.wrong {
+  background: var(--error);
+  border-color: var(--error);
+  box-shadow: none;
+  color: #fff;
+}
+.answer-btn.dimmed {
+  background: var(--s1);
+  border-color: #27272a;
+  color: #52525b;
+  box-shadow: none;
+}
+
+/* ─── Skewed badge ────────────────────────────────────────────── */
+.badge-volt {
+  display: inline-block;
+  background: var(--volt);
+  color: #000;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  transform: skewX(-10deg);
+}
+
+.badge-outline {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid #fff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  transform: skewX(-10deg);
+}
+
+/* ─── Animations ──────────────────────────────────────────────── */
+@keyframes entryFade {
+  from { opacity: 0; transform: scale(0.96) translateY(6px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 0.45; }
+}
+
+.anim-entry  { animation: entryFade 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-slide  { animation: slideRight 0.3s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-glow   { animation: glowPulse 2.5s ease-in-out infinite; }
